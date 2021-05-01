@@ -20,3 +20,11 @@ class Courses(admin.ModelAdmin):
 
 
 admin.site.register(Course, Courses)
+
+
+class Enrollments(admin.ModelAdmin):
+    list_display = ('id', 'student', 'course', 'period')
+    list_display_links = ('id',)
+
+
+admin.site.register(Enrollment, Enrollments)
