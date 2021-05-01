@@ -1,5 +1,7 @@
-from django.http import JsonResponse
 from rest_framework import viewsets, generics
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 from school.models import Student, Course, Enrollment
 from school.serializer import StudentSerializer, CourseSerializer, EnrollmentSerializer, \
     ListEnrollmentsStudentSerializer, ListStudentEnrolledSerializer
@@ -11,6 +13,8 @@ class StudentsViewSet(viewsets.ModelViewSet):
     """
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class CoursesViewSet(viewsets.ModelViewSet):
@@ -20,6 +24,8 @@ class CoursesViewSet(viewsets.ModelViewSet):
 
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class EnrollmentsViewSet(viewsets.ModelViewSet):
@@ -28,6 +34,8 @@ class EnrollmentsViewSet(viewsets.ModelViewSet):
     """
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class ListEnrollmentsStudent(generics.ListAPIView):
@@ -40,6 +48,8 @@ class ListEnrollmentsStudent(generics.ListAPIView):
         return queryset
 
     serializer_class = ListEnrollmentsStudentSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class ListStudentsEnrolled(generics.ListAPIView):
@@ -52,3 +62,5 @@ class ListStudentsEnrolled(generics.ListAPIView):
         return queryset
 
     serializer_class = ListStudentEnrolledSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
