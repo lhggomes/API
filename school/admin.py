@@ -1,3 +1,22 @@
 from django.contrib import admin
+from school.models import *
 
-# Register your models here.
+
+class Students(admin.ModelAdmin):
+    list_display = ('id', 'name', 'rg', 'cpf', 'birth_date')
+    list_display_links = ('id', 'name')
+    search_fields = ('name',)
+    list_per_page = 20
+
+
+admin.site.register(Student, Students)
+
+
+class Courses(admin.ModelAdmin):
+    list_display = ('id', 'code', 'description')
+    list_display_links = ('id', 'description')
+    search_fields = ('description',)
+    list_per_page = 20
+
+
+admin.site.register(Course, Courses)
