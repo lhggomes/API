@@ -18,3 +18,18 @@ class EnrollmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Enrollment
         fields = '__all__'
+
+
+class ListEnrollmentsStudentSerializer(serializers.ModelSerializer):
+    course = serializers.ReadOnlyField(source='course.description')
+    period = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Enrollment
+        fields = ['course', 'period']
+
+    @staticmethod
+    def get_period(obj):
+        return obj.get_period_display()
+
+

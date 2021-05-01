@@ -1,7 +1,8 @@
 from django.http import JsonResponse
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from school.models import Student, Course, Enrollment
-from school.serializer import StudentSerializer, CourseSerializer, EnrollmentSerializer
+from school.serializer import StudentSerializer, CourseSerializer, EnrollmentSerializer, \
+    ListEnrollmentsStudentSerializer
 
 
 class StudentsViewSet(viewsets.ModelViewSet):
@@ -27,4 +28,15 @@ class EnrollmentsViewSet(viewsets.ModelViewSet):
     """
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
+
+
+class ListEnrollmentsStudent(generics.ListAPIView):
+    """
+    Listing the enrollments of a student
+    """
+    def get_queryset(self):
+        queryset = Enrollment.objects.filter(student_id=self.kwargs['pk'])
+        return queryset
+
+    serializer_class = ListEnrollmentsStudentSerializer
 
