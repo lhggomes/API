@@ -33,3 +33,9 @@ class ListEnrollmentsStudentSerializer(serializers.ModelSerializer):
         return obj.get_period_display()
 
 
+class ListStudentEnrolledSerializer(serializers.ModelSerializer):
+    student_name = serializers.ReadOnlyField(source='student.name')
+
+    class Meta:
+        model = Enrollment
+        fields = ['student_name']
