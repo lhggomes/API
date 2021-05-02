@@ -34,6 +34,7 @@ Usage
 -----------------
 You can run this app on your local machine, or use the published url on Heroku: 
 
+
 ~~~~~~~~~~~
 https://lg-students.herokuapp.com/
 ~~~~~~~~~~~
