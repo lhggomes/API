@@ -22,6 +22,22 @@ You can also use filters on API Rest View:
 Table of Contents
 -----------------
 
+- Usage
+- Getting Started
+- Installing
+- Built With
+- Versioning
+- Authors
+- License
+
+Usage
+-----------------
+You can run this app on your local machine, or use the published url on Heroku: 
+
+~~~~~~~~~~~
+https://lg-students.herokuapp.com/
+~~~~~~~~~~~
+
 Getting Started
 ---------------
 
