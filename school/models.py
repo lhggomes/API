@@ -4,8 +4,9 @@ from django.db import models
 class Student(models.Model):
     name = models.CharField(max_length=300)
     rg = models.CharField(max_length=10)
-    cpf = models.CharField(max_length=11)
+    cpf = models.CharField(max_length=11, unique=True)
     birth_date = models.DateField()
+    email = models.EmailField(default="test@getnada.com")
 
     def __str__(self):
         return self.name
