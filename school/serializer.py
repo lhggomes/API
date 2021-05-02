@@ -13,11 +13,13 @@ class StudentSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({'cpf': "The CPF must have 11 digits"})
 
         if not name_valid(data['name']):
-            raise serializers.ValidationError("Do not include numbers in this field")
+            raise serializers.ValidationError({'name': "Do not include numbers in this field"})
 
         if not rg_valid(data['rg']):
-            raise serializers.ValidationError("RG Number must have 9 digits")
+            raise serializers.ValidationError({'rg': "RG Number must have 9 digits"})
 
+        if not phone_valid(data['phone']):
+            raise serializers.ValidationError({'phone': "The phone number must have this pattern: 11 91234-1234"})
         return data
 
 

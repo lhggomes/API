@@ -7,6 +7,7 @@ class Student(models.Model):
     cpf = models.CharField(max_length=11, unique=True)
     birth_date = models.DateField()
     email = models.EmailField(default="test@getnada.com")
+    phone = models.CharField(max_length=11, default="1")
 
     def __str__(self):
         return self.name
