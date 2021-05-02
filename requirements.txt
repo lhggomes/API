@@ -4,3 +4,4 @@ django-filter
 djangorestframework
 sqlparse
 validate-docbr
+django-heroku
