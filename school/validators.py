@@ -1,4 +1,5 @@
 import re
+from validate_docbr import CPF
 
 
 def cpf_valid(cpf):
@@ -7,7 +8,8 @@ def cpf_valid(cpf):
     :param cpf: cpf in a string
     :return: True or False
     """
-    return len(cpf) == 11
+    cpf_validator = CPF()
+    return cpf_validator.validate(cpf)
 
 
 def name_valid(name):
