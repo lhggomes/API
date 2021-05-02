@@ -9,6 +9,8 @@ class Student(models.Model):
     email = models.EmailField(default="test@getnada.com")
     phone = models.CharField(max_length=13, default="1")
 
+    ordering = ('name',)
+
     def __str__(self):
         return self.name
 
