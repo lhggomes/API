@@ -8,6 +8,7 @@ class Student(models.Model):
     birth_date = models.DateField()
     email = models.EmailField(default="test@getnada.com")
     phone = models.CharField(max_length=13, default="1")
+    active = models.BooleanField(default=True)
 
     ordering = ('name',)
 

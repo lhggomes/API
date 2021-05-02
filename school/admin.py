@@ -5,7 +5,7 @@ from school.models import *
 class Students(admin.ModelAdmin):
     list_display = ('id', 'name', 'rg', 'cpf', 'birth_date')
     list_display_links = ('id', 'name')
-    search_fields = ('name',)
+    search_fields = ('name', 'cpf')
     list_per_page = 20
 
 

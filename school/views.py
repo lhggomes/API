@@ -16,8 +16,10 @@ class StudentsViewSet(viewsets.ModelViewSet):
     serializer_class = StudentSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated]
-    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['name']
+    search_fields = ['name', 'cpf']
+    filterset_fields = ['active']
 
 
 class CoursesViewSet(viewsets.ModelViewSet):

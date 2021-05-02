@@ -14,6 +14,11 @@ The API Returns, for example, in GET Method:
 
 <img src="/docs/img/get_method.png" alt="GET Method"/>
 
+You can also use filters on API Rest View: 
+
+<img src="/docs/img/rest_filters.png" alt="GET Method"/>
+
+
 Table of Contents
 -----------------
 
