@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from school.models import *
+from school.validators import *
 
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -7,23 +8,17 @@ class StudentSerializer(serializers.ModelSerializer):
         model = Student
         fields = '__all__'
 
-    @staticmethod
-    def validate_cpf(cpf):
-        if len(cpf) != 11:
-            raise serializers.ValidationError("The CPF must have 11 digits")
-        return cpf
+    def validate(self, data):
+        if not cpf_valid(data['cpf']):
+            raise serializers.ValidationError({'cpf': "The CPF must have 11 digits"})
 
-    @staticmethod
-    def validate_name(name):
-        if not name.isalpha():
+        if not name_valid(data['name']):
             raise serializers.ValidationError("Do not include numbers in this field")
-        return name
 
-    @staticmethod
-    def validate_rg(rg):
-        if len(rg) != 9:
+        if not rg_valid(data['rg']):
             raise serializers.ValidationError("RG Number must have 9 digits")
-        return rg
+
+        return data
 
 
 class CourseSerializer(serializers.ModelSerializer):
