@@ -48,7 +48,7 @@ your local machine.
 
 Installing
 ----------
-You'll need on version of Python, installed on your device, you can get one <a href="https://www.python.org/downloads/">Here.</a>
+You'll need one version of Python installed on your device, you can get one <a href="https://www.python.org/downloads/">Here.</a>
 
 
 Get the package from source:
